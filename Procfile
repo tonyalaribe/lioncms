@@ -1,2 +1,2 @@
-web: ./ponzu-server run api,admin -port $PORT
+web: ./ponzu-server -port=$PORT run api,admin
 
