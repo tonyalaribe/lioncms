@@ -1,0 +1,42 @@
+	
+<div class="fullwidth-path">
+			<div class="fullwidth-section-bg bg-<%= rightleft(index) %>" style="background-image: url('http://localhost:8080<%= hotel.PhotoURL %>');"></div>
+			<div class="col-sm-6 <%= offset(index) %> align-<%= rightleft index %> fullwidth-column">
+				<article>
+					<h3>
+          <%= if (hotel.Onsale) { %>
+            <a href="<%= hotel.BlockCode %>"><%= hotel.Name %></a>
+          <% } else { %>
+          <span><%= hotel.Name %></span>
+          <% } %>
+          </h3>
+					<p>
+						<small class="text-alt">
+							<span class="highlight">
+								<a href="https://goo.gl/maps/B46mFQjQgHA2">
+									<%= hotel.Address %>, <%= hotel.City %>
+								</a>
+							</span>
+						</small>
+					</p>
+					<p><%= hotel.Description %></p>
+					<p><span class="highlight"><%= hotel.Phone %></span></p>
+					<br />
+					<div class="speaker">
+						<ul class="speaker-socials align-<%= rightleft(index) %>">
+							<li>
+								<a href="#"><!-- <span class="fa fa-dollar"></span> -->
+									N
+								</a>
+								<span class="highlight"> <%= hotel.RoomRate %></span>
+							</li>
+						</ul>
+					</div>
+          <%= if (hotel.Onsale) { %>
+					<a href="hotels/<%= hotel.Slug %>" class="btn btn-sm btn-outline-clr" style="margin: 30px 0 0">Reserve this Hotel</a>
+          <% } else { %>
+					<span class="btn btn-sm btn-outline-clr" style="margin: 30px 0 0">No Inventory Available</span>
+          <% } %>
+				</article>
+			</div>
+		</div>

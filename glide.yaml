@@ -1,0 +1,49 @@
+package: github.com/tonyalaribe/lion2018
+import:
+- package: github.com/GeertJohan/go.rice
+- package: github.com/bketelsen/ponzi
+- package: github.com/bosssauce/reference
+- package: github.com/gobuffalo/buffalo
+  version: ^0.9.3
+  subpackages:
+  - middleware
+  - render
+- package: github.com/gobuffalo/packr
+  version: ^1.0.0
+- package: github.com/markbates/going
+  subpackages:
+  - defaults
+- package: github.com/markbates/grift
+  subpackages:
+  - grift
+- package: github.com/markbates/pop
+  version: ^3.32.1
+- package: github.com/markbates/validate
+  subpackages:
+  - validators
+- package: github.com/pkg/errors
+  version: ^0.8.0
+- package: github.com/ponzu-cms/ponzu
+  version: ^0.9.3
+  subpackages:
+  - content
+  - management/editor
+  - system/addon
+  - system/admin
+  - system/admin/user
+  - system/api
+  - system/api/analytics
+  - system/db
+  - system/item
+  - system/tls
+- package: github.com/spf13/cobra
+- package: golang.org/x/crypto
+  subpackages:
+  - bcrypt
+testImport:
+- package: github.com/kr/pretty
+- package: github.com/markbates/willie
+- package: github.com/stretchr/testify
+  version: ^1.1.4
+  subpackages:
+  - require

@@ -1,0 +1,30 @@
+	
+<div class="fullwidth-path">
+    <div class="fullwidth-section-bg bg-<%= rightleft(index) %>" style="background-image: url('http://localhost:8080<%= accomodation.RoomPhoto %>');"></div>
+    <div class="col-sm-6 <%= offset(index) %> align-<%= rightleft index %> fullwidth-column">
+        <article>
+            <h3><span><%= accomodation.Type %></span></h3>
+            <p><%= accomodation.Description %></p>
+            <p class="">
+                Quantity:
+            <span class="highlight">  <%= accomodation.Quantity %></span>
+            </p>
+            <br />
+            <div class="speaker">
+                <ul class="speaker-socials align-<%= rightleft(index) %>">
+                    <li>
+                        <a href="#"><!-- <span class="fa fa-dollar"></span> -->
+                            N <%= accomodation.Price %>
+                        </a>
+                        
+                    </li>
+                </ul>
+            </div>
+  <%= if (accomodation.Quantity > 0) { %>
+            <a href="/book/<%= accomodation.ID %>" class="btn btn-sm btn-outline-clr" style="margin: 30px 0 0">Book this accomodation</a>
+  <% } else { %>
+            <span class="btn btn-sm btn-outline-clr" style="margin: 30px 0 0">No more Available</span>
+  <% } %>
+        </article>
+    </div>
+</div>

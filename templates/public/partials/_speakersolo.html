@@ -1,0 +1,40 @@
+
+	<section class="section" style="padding: 100px 0 30px;">
+
+		<div class="container align-center">
+	<%= for (speaker) in p.Speakers {  %>
+			<div class="col-sm-6 align-center img-column">
+
+				<img src="<%= baseurl %><%= speaker.PhotoURL %>" alt="" />
+	<%= for (speaker) in p.Speakers {  %>
+    <blockquote><%= speaker.Bio%></blockquote>
+		<% } %>
+				</div>
+			<% } %>
+
+
+
+			<div class="col-sm-6 align-left">
+
+				  <article style="max-width: 480px;">
+
+	<%= for (speaker) in p.Speakers {  %>
+	<h4><span class="highlight" ><%= speaker.TalkType %></span></h4>
+					  <% } %>
+
+	<%= for (speaker) in p.Speakers {  %>
+	<h3><%= speaker.FirstName %> <%= speaker.LastName %></h3>
+	<% } %>
+
+	<%= for (speaker) in p.Speakers {  %>
+	<h4><span class="highlight" ><%= p.Presentation.Title %></span></h4>
+	<% } %>
+	<p><%= p.Presentation.LongDescription %></p>
+
+				</article>
+
+			</div>
+
+		</div>
+
+	</section>

@@ -1,0 +1,78 @@
+	
+<div class="fullwidth-path">
+        <div class="fullwidth-section-bg bg-<%= rightleft(index) %>" style="background-image: url('http://localhost:8080<%= accomodation.RoomPhoto %>');"></div>
+        <div class="col-sm-6 <%= offset(index) %> align-<%= rightleft index %> fullwidth-column">
+            <article>
+                <h3><span><%= accomodation.Type %></span></h3>
+                <p><%= accomodation.Description %></p>
+                <p class="">
+                    Quantity:
+                <span class="highlight">  <%= accomodation.Quantity %></span>
+                </p>
+                <br />
+                <div class="speaker">
+                    <ul class="speaker-socials align-<%= rightleft(index) %>">
+                        <li>
+                            <a href="#"><!-- <span class="fa fa-dollar"></span> -->
+                                N <%= accomodation.Price %>
+                            </a>
+                            
+                        </li>
+                    </ul>
+                </div>
+      <%= if (accomodation.Quantity > 0) { %>
+        <div class=" login">
+                <!-- BEGIN LOGIN -->
+                <div class="content">
+                    <!-- BEGIN LOGIN FORM -->
+                    <form class="login-form" action="/book/<%= accomodation.ID %>" method="POST">
+                        <h3 class="form-title font-green">Book</h3>
+                        <%= if (HasBookError) { %>
+                        <div class="alert alert-danger">
+                            <button class="close" data-close="alert"></button>
+                            <span><%= BookError %></span>
+                        </div>
+                        <% } %>
+                        <%= if (BookSuccess) { %>
+                        <div class="alert alert-success">
+                            <button class="close" data-close="alert"></button>
+                            <span><%= BookSuccess %></span>
+                        </div>
+                        <% } %>
+                        <div class="form-group">
+                            <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                            <label class="control-label visible-ie8 visible-ie9">Name</label>
+                            <input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" placeholder="Name" name="name" />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label visible-ie8 visible-ie9">Email</label>
+                            <input class="form-control form-control-solid placeholder-no-fix" type="email" autocomplete="off" placeholder="Email" name="email" />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label visible-ie8 visible-ie9">Registration Number</label>
+                            <input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" placeholder="Registration Number" name="registration_number" />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label visible-ie8 visible-ie9">Mode of Payment</label>
+                            <select class="form-control form-control-solid" name="mode_of_payment">
+                                <option selected disabled>Mode of payment</option>
+                                <option value="check">Check</option>
+                                <option value="transfer">Transfer</option>
+                                <option value="bank">Bank</option>
+                                <option value="cash">Cash</option>
+                            </select>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn green uppercase">Book</button>
+                        </div>
+                    </form>
+                </div>
+        </div>
+                <!-- <a href="/book/<%= accomodation.ID %>" class="btn btn-sm btn-outline-clr" style="margin: 30px 0 0">Book this accomodation</a> -->
+      <% } else { %>
+                <span class="btn btn-sm btn-outline-clr" style="margin: 30px 0 0">No more Available</span>
+      <% } %>
+            </article>
+        </div>
+    </div>
+    

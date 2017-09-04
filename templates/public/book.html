@@ -1,0 +1,26 @@
+<section class="section" id="hotels" style="padding: 100px 0 30px;">
+        <div class="container">
+            <div class="col-sm-12 align-center">
+                <article> <!-- style="max-width: 480px;" -->
+                    <h3>BOOK THIS ACCOMODATION</h3>
+                    <!-- <p><small class="text-alt"><span class="highlight">Stay in style</span></small></p> -->
+                    <!-- <p>
+                        To receive the Group room rate at our conference hotels,
+                        be sure to mention the <span class="highlight">GopherCon room block.</span>
+                        Rates will be honored until the block sells out.
+                    </p> -->
+                    <!-- <p>
+                        Here are available hotel acomodations and their prices you can choose from.
+                    </p> -->
+                </article>
+            </div>
+        </div>
+    </section>
+    
+    
+    <section id="hotels" class="fullwidth-section">
+    <%= if (accomodation) { %>
+    <%=  partial("hotels/book.html") %>
+     <% } %>
+    </section>
+    

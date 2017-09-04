@@ -1,0 +1,55 @@
+package models
+
+import (
+	"log"
+	"net/url"
+	"strconv"
+
+	"github.com/tonyalaribe/lion2018/content"
+)
+
+type HomePage struct {
+	Hotels        []content.Hotel
+	Sponsors      SponsorList
+	Presentations []Presentation
+	Workshops     []Workshop
+}
+
+func GetHomePage() (*HomePage, error) {
+	var hp HomePage
+	hotels, err := GetHotelList()
+	if err != nil {
+		log.Print(err)
+		return &hp, err
+	}
+	hp.Hotels = hotels
+
+	presentations := GetPresentations()
+
+	hp.Presentations = presentations
+
+	workshops := GetWorkshops()
+
+	hp.Workshops = workshops
+	sponsors, err := GetSponsorList()
+	if err != nil {
+		log.Print(err)
+		return &hp, err
+	}
+	hp.Sponsors = SortedSponsorList(sponsors)
+	return &hp, nil
+}
+
+func getID(s string) (int, error) {
+	//?type=Module&id=4
+	u, err := url.Parse(s)
+	if err != nil {
+		return 0, err
+	}
+	vals := u.Query()
+	ii, ok := vals["id"]
+	if !ok {
+		return 0, err
+	}
+	return strconv.Atoi(ii[0])
+}
